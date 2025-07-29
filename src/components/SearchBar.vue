@@ -96,7 +96,7 @@ const getSearchIconSrc = (key: string) => {
                   {{ v[0] }}
                 </n-button>
               </template>
-              输入关键字"{{ k }}"+空格切换
+              輸入關鍵字"{{ k }}"+空格切換
             </n-tooltip>
           </n-space>
         </n-popover>

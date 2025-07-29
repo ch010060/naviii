@@ -3,8 +3,8 @@ import {
   NGlobalStyle,
   NConfigProvider,
   darkTheme,
-  zhCN,
-  dateZhCN,
+  zhTW,
+  dateZhTW,
 } from "naive-ui";
 import HomePage from "@/components/HomePage.vue";
 import { store } from "@/store";
@@ -12,8 +12,8 @@ import { store } from "@/store";
 
 <template>
   <n-config-provider
-    :locale="zhCN"
-    :date-locale="dateZhCN"
+    :locale="zhTW"
+    :date-locale="dateZhTW"
     :theme="store.isDarkTheme ? darkTheme : null"
   >
     <HomePage />

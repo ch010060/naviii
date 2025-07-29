@@ -83,7 +83,7 @@ const openProject = () => {
             ></i>
           </n-button>
         </template>
-        回到顶部
+        回到頂部
       </n-tooltip>
       <n-tooltip placement="right" trigger="hover">
         <template #trigger>
@@ -94,7 +94,7 @@ const openProject = () => {
             ></i>
           </n-button>
         </template>
-        切换主题
+        切換主題
       </n-tooltip>
       <n-tooltip placement="right" trigger="hover">
         <template #trigger>
@@ -102,7 +102,7 @@ const openProject = () => {
             <i class="item-icon icon-rotateY fa-brands fa-github"></i>
           </n-button>
         </template>
-        项目地址
+        專案地址
       </n-tooltip>
     </div>
   </div>

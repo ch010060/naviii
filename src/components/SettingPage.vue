@@ -25,22 +25,22 @@ let inputBookMarks = ref(JSON.stringify(store.bookMarks, null, 2));
 let searchSelectValue = ref(store.searchJump);
 let searchSelectOptions = [
   {
-    label: "在当前页面打开搜索页",
+    label: "在目前頁面打開搜索頁",
     value: "_self",
   },
   {
-    label: "在新页面打开搜索页",
+    label: "在新頁面打開搜索頁",
     value: "_blank",
   },
 ];
 let openSelectValue = ref(store.openBookMarkJump);
 let openSelectOptions = [
   {
-    label: "在当前页面打开书签页",
+    label: "在目前頁面打開書籤頁",
     value: "_self",
   },
   {
-    label: "在新页面打开书签页",
+    label: "在新頁面打開書籤頁",
     value: "_blank",
   },
 ];
@@ -59,7 +59,7 @@ const saveData = () => {
     try {
       store.setBookMarks(inputBookMarks.value);
     } catch (e) {
-      const msg = "保存失败！书签Json数据格式错误：" + e;
+      const msg = "儲存失敗！書籤Json數據格式錯誤：" + e;
       console.log(msg);
       message.error(msg, {
         duration: 8000,
@@ -69,9 +69,9 @@ const saveData = () => {
     if (inputBookMarks.value == "") {
       inputBookMarks.value = JSON.stringify(store.bookMarks, null, 2);
     }
-    message.success("保存成功！");
+    message.success("儲存成功！");
   } catch (e) {
-    const msg = "保存失败！" + e;
+    const msg = "儲存失敗！" + e;
     console.log(msg);
     message.error(msg, {
       duration: 8000,
@@ -81,7 +81,7 @@ const saveData = () => {
 
 const clearData = () => {
   db.clear();
-  message.success("数据已清除！即将刷新页面~");
+  message.success("數據已清除！即將重新整理頁面~");
   setTimeout(() => {
     location.reload();
   }, 3000);
@@ -105,12 +105,12 @@ const importData = (fileList: UploadFileInfo[]) => {
               db.setItem(key, data[key]);
             }
           }
-          message.success("数据导入成功！即将刷新页面~");
+          message.success("數據匯入成功！即將重新整理頁面~");
           setTimeout(() => {
             location.reload();
           }, 3000);
         } catch (e) {
-          const msg = "数据导入失败！" + e;
+          const msg = "數據匯入失敗！" + e;
           console.log(msg);
           message.error(msg, {
             duration: 8000,
@@ -124,9 +124,9 @@ const importData = (fileList: UploadFileInfo[]) => {
 
 <template>
   <n-drawer-content :native-scrollbar="false">
-    <template #header> 设置 </template>
+    <template #header> 設定 </template>
     <n-tabs type="segment">
-      <n-tab-pane name="Base" tab="基础">
+      <n-tab-pane name="Base" tab="基礎">
         <n-space vertical>
           <n-input-group>
             <n-input-group-label>iconAPI</n-input-group-label>
@@ -147,7 +147,7 @@ const importData = (fileList: UploadFileInfo[]) => {
             @update:file-list="importData"
           >
             <n-button class="base-item" strong secondary type="info">
-              导入数据
+              匯入數據
             </n-button>
           </n-upload>
           <n-button
@@ -157,7 +157,7 @@ const importData = (fileList: UploadFileInfo[]) => {
             type="info"
             @click="exportData"
           >
-            导出数据
+            導出數據
           </n-button>
           <n-button
             class="base-item"
@@ -166,11 +166,11 @@ const importData = (fileList: UploadFileInfo[]) => {
             type="error"
             @click="clearData"
           >
-            清除数据
+            清除數據
           </n-button>
         </n-space>
       </n-tab-pane>
-      <n-tab-pane name="BookMarks" tab="书签">
+      <n-tab-pane name="BookMarks" tab="書籤">
         <VueCodemirror
           v-model="inputBookMarks"
           :extensions="store.isDarkTheme ? [oneDark] : []"
@@ -185,7 +185,7 @@ const importData = (fileList: UploadFileInfo[]) => {
         type="primary"
         @click="saveData"
       >
-        保存
+        儲存
       </n-button>
     </template>
   </n-drawer-content>
